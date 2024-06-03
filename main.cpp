@@ -2,6 +2,7 @@
 // g++ *.cpp -o main && ./main
 
 #include <iostream>
+#include <string>
 #include <fstream>
 using namespace std;
 
@@ -9,7 +10,7 @@ using namespace std;
 #include "CardNode.h"
 
 int main () {
-  CardNode cardNode;
+  // CardNode <string, string> cardNode;
 
   // cout << "Inserting items into the list:" << endl;
   // cardNode.insertNode("Aa", "Apple", "fruit", "a fruit");
@@ -49,7 +50,7 @@ int main () {
 
     switch (choice) {
       case '1': {
-        CardNode cardNode;
+        CardNode <string,string> cardNode;
 
         ifstream file;
         string fileName;

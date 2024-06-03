@@ -6,10 +6,11 @@
 
 using namespace std;
 
+template <class T1, class T2>
 class CardContent {
   private:
-    string label;
-    string question;
+    T1 label;
+    T2 question;
     string category;
     string description;
 
@@ -20,14 +21,14 @@ class CardContent {
     ~CardContent();
 
     // mutator
-    void setQuestion(string question);
-    void setLabel(string label);
+    void setLabel(T1 label);
+    void setQuestion(T2 question);
     void setCategory(string category);
     void setDescription(string description);
 
     // accessor
-    string getLabel() const;
-    string getQuestion() const;
+    T1 getLabel() const;
+    T2 getQuestion() const;
     string getCategory() const;
     string getDescription() const;
 };

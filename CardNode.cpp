@@ -1,15 +1,18 @@
 #include "CardNode.h"
 
 #include <iostream>
+#include <string>
 #include <iomanip>
 using namespace std;
 
-CardNode::CardNode() {
+template <class T1, class T2>
+CardNode<T1, T2>::CardNode() {
   head = nullptr;
   tail = nullptr; 
 }
 
-void CardNode::editNode (string label, string question, string category, string description) {
+template <class T1, class T2>
+void CardNode<T1, T2>::editNode (T1 label, T2 question, string category, string description) {
   try {
     if (label == "") {
       cout << endl << "Error: Label cannot be empty." << endl;
@@ -50,7 +53,8 @@ void CardNode::editNode (string label, string question, string category, string 
   }
 }
 
-void CardNode::searchNode (string question) const {
+template <class T1, class T2>
+void CardNode<T1, T2>::searchNode (T2 question) const {
   try {
     if (question == "") {
       cout << endl << "Error: Question / Vocabulary cannot be empty." << endl;
@@ -85,7 +89,8 @@ void CardNode::searchNode (string question) const {
   }
 }
 
-void CardNode::deleteNode (string question) {
+template <class T1, class T2>
+void CardNode<T1, T2>::deleteNode (T2 question) {
   try {
     if (question == "") {
       cout << endl << "Error: Question / Vocabulary cannot be empty." << endl;
@@ -140,7 +145,8 @@ void CardNode::deleteNode (string question) {
   }
 }
 
-CardNode::~CardNode() {
+template <class T1, class T2>
+CardNode<T1, T2>::~CardNode() {
   Card *nodePtr;
   Card *nextNode;
 
@@ -153,7 +159,8 @@ CardNode::~CardNode() {
   }
 }
 
-void CardNode::insertNode (string label, string question, string category, string description) {
+template <class T1, class T2>
+void CardNode<T1, T2>::insertNode (T1 label, T2 question, string category, string description) {
   try {
     if (label == "") {
       cout << endl << "Error: Label cannot be empty." << endl;
@@ -231,7 +238,8 @@ void CardNode::insertNode (string label, string question, string category, strin
   }
 }
 
-void CardNode::displayNode(string question) const {
+template <class T1, class T2>
+void CardNode<T1, T2>::displayNode(T2 question) const {
   Card *nodePtr;
   nodePtr = head;
 
@@ -255,7 +263,8 @@ void CardNode::displayNode(string question) const {
   }
 }
 
-void CardNode::displayListOneByOne() const {
+template <class T1, class T2>
+void CardNode<T1,T2>::displayListOneByOne() const {
   Card *nodePtr;
   nodePtr = head;
 
@@ -308,7 +317,8 @@ void CardNode::displayListOneByOne() const {
   } while (choice != 'q');
 }
 
-void CardNode::displayList() const {
+template <class T1, class T2>
+void CardNode<T1,T2>::displayList() const {
   Card *nodePtr;
   nodePtr = head;
 
@@ -328,7 +338,8 @@ void CardNode::displayList() const {
   }
 }
 
-string CardNode::getCardLabel(string question) const {
+template <class T1, class T2>
+T1 CardNode<T1, T2>::getCardLabel(T2 question) const {
   Card *nodePtr;
   nodePtr = head;
 
@@ -343,7 +354,8 @@ string CardNode::getCardLabel(string question) const {
   }
 }
 
-string CardNode::getCardQuestion(string question) const {
+template <class T1, class T2>
+T2 CardNode<T1, T2>::getCardQuestion(T2 question) const {
   Card *nodePtr;
   nodePtr = head;
 
@@ -358,7 +370,8 @@ string CardNode::getCardQuestion(string question) const {
   }
 }
 
-string CardNode::getCardCategory(string question) const {
+template <class T1, class T2>
+string CardNode<T1, T2>::getCardCategory(T2 question) const {
   Card *nodePtr;
   nodePtr = head;
 
@@ -373,7 +386,8 @@ string CardNode::getCardCategory(string question) const {
   }
 }
 
-string CardNode::getCardDescription(string question) const {
+template <class T1, class T2>
+string CardNode<T1, T2>::getCardDescription(T2 question) const {
   Card *nodePtr;
   nodePtr = head;
 

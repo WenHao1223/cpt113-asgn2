@@ -1,12 +1,14 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 #include "CardContent.h"
 
+template <class T1, class T2>
 class CardNode {
   private:
     struct Card {
-      CardContent content;
+      CardContent <T1, T2> content;
       Card *next;
       Card *prev;
     };
@@ -18,29 +20,29 @@ class CardNode {
     CardNode();
 
     // Editing the content of the list node
-    void editNode(string label, string question, string category, string description);
+    void editNode(T1 label, T2 question, string category, string description);
 
     // Searching the list
-    void searchNode(string question) const;
+    void searchNode(T2 question) const;
 
     // Deleting the node
-    void deleteNode(string question);
+    void deleteNode(T2 question);
 
     // Destruct the whole list
     ~CardNode();
 
     // Inserting the node
-    void insertNode(string label, string question, string category, string description);
+    void insertNode(T1 label, T2 question, string category, string description);
 
     // Display each node's content
-    void displayNode(string question) const;
+    void displayNode(T2 question) const;
     void displayListOneByOne() const;
 
     // Display the whole list
     void displayList() const;
 
-    string getCardLabel(string question) const;
-    string getCardQuestion(string question) const;
-    string getCardCategory(string question) const;
-    string getCardDescription(string question) const;
+    T1 getCardLabel(T2 question) const;
+    T2 getCardQuestion(T2 question) const;
+    string getCardCategory(T2 question) const;
+    string getCardDescription(T2 question) const;
 };
