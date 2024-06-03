@@ -1,0 +1,12 @@
+1	1.1	decimal	One point one
+2	300.3	decimal	Three hundred point three
+3	15.5	decimal	Fifteen point five
+4	42.42	decimal	Forty-two point forty-two
+5	100.01	decimal	One hundred point zero one
+6	2000.5	decimal	Two thousand point five
+7	0.99	decimal	Zero point ninety-nine
+8	1234.567	decimal	One thousand two hundred thirty-four point five six seven
+9	75.75	decimal	Seventy-five point seventy-five
+10	888.888	decimal	Eight hundred eighty-eight point eight eight eight
+11	6.022	decimal	Six point zero two two
+12	3000.3	decimal	Three thousand point three
