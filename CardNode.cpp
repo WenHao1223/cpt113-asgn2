@@ -223,15 +223,15 @@ void CardNode::displayNode(string question) const {
   }
 
   if (nodePtr) {
-    string border = "+------------------------------------------+";
+    string border = "+------------------------------------------------------------------------------------------------------+";
 
     cout << border << endl;
-    cout << "| " << setw(40) << left << nodePtr->getLabel() << " |" << endl;
-    cout << "| " << setw(40) << left << " " << " |" << endl;
-    cout << "| " << setw(40) << left << nodePtr->getQuestion() << " |" << endl;
-    cout << "| " << setw(40) << left << ("<" + nodePtr->getCategory() + ">") << " |" << endl;
-    cout << "| " << setw(40) << left << " " << " |" << endl;
-    cout << "| " << setw(40) << left << nodePtr->getDescription() << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->getLabel() << " |" << endl;
+    cout << "| " << setw(100) << left << " " << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->getQuestion() << " |" << endl;
+    cout << "| " << setw(100) << left << ("<" + nodePtr->getCategory() + ">") << " |" << endl;
+    cout << "| " << setw(100) << left << " " << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->getDescription() << " |" << endl;
     cout << border << endl;
   } else {
     cout << "Question not found." << endl;
@@ -243,15 +243,15 @@ void CardNode::displayList() const {
   nodePtr = head;
 
   while (nodePtr) {
-    string border = "+------------------------------------------+";
+    string border = "+------------------------------------------------------------------------------------------------------+";
 
     cout << border << endl;
-    cout << "| " << setw(40) << left << nodePtr->getLabel() << " |" << endl;
-    cout << "| " << setw(40) << left << " " << " |" << endl;
-    cout << "| " << setw(40) << left << nodePtr->getQuestion() << " |" << endl;
-    cout << "| " << setw(40) << left << ("<" + nodePtr->getCategory() + ">") << " |" << endl;
-    cout << "| " << setw(40) << left << " " << " |" << endl;
-    cout << "| " << setw(40) << left << nodePtr->getDescription() << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->getLabel() << " |" << endl;
+    cout << "| " << setw(100) << left << " " << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->getQuestion() << " |" << endl;
+    cout << "| " << setw(100) << left << ("<" + nodePtr->getCategory() + ">") << " |" << endl;
+    cout << "| " << setw(100) << left << " " << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->getDescription() << " |" << endl;
     cout << border << endl;
     
     nodePtr = nodePtr->getNext();
