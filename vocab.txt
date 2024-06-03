@@ -1,3 +1,0 @@
-ant;Noun;A type of social insects that live together in organized colonies.
-apple;Noun;A round and frleshy fruit, which can be green or red in colour.
-bear;Noun;Large, powerful mammal with long shaggy hair, a short tail, and plantigrade feet.

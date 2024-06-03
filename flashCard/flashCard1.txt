@@ -1,0 +1,11 @@
+ant;insect;A tiny insect that lives in big groups called colonies.
+apple;fruit;A round, juicy fruit that can be red, green, or yellow.
+bear;mammal;A big, strong animal with thick fur and a short tail.
+cat;animal;A small pet with soft fur that likes to purr.
+car;vehicle;A machine with four wheels that people drive to go places.
+rose;plant;A pretty flower that comes in many colors and has a nice smell.
+diamond;mineral;A shiny, hard stone used in jewelry.
+guitar;instrument;A musical instrument with strings you play by strumming.
+eagle;bird;A large bird with sharp claws and excellent eyesight.
+laptop;electronics;A small computer you can carry around and use anywhere.
+river;geographical feature;A long stream of water that flows to the ocean or a lake.

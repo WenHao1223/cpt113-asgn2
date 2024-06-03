@@ -1,0 +1,12 @@
+dog;animal;A friendly pet with fur that barks and wags its tail.
+banana;fruit;A long, yellow fruit that is sweet and soft inside.
+elephant;mammal;A very large animal with a trunk and big ears.
+butterfly;insect;A colorful insect with large, delicate wings.
+train;vehicle;A long vehicle that runs on tracks and carries people or goods.
+tulip;plant;A bright, colorful flower that blooms in the spring.
+gold;mineral;A shiny, yellow metal used to make coins and jewelry.
+piano;instrument;A large musical instrument with black and white keys that you press to play.
+parrot;bird;A bright, colorful bird that can sometimes mimic sounds and words.
+tablet;electronics;A small, flat computer that you can use by touching the screen.
+mountain;geographical feature;A very high, rocky place that you can climb.
+shark;fish;A large fish with sharp teeth that lives in the ocean.
