@@ -27,7 +27,8 @@ int main () {
     cout << "Editing banana:" << endl;
     cardNode.editNode("Banana", "fruit", "a fruit that is yellow");
 
-    cardNode.displayList();
+    cout << "Displaying banana:" << endl;
+    cardNode.displayNode("Banana");
 
     return 0;
 }

@@ -148,3 +148,21 @@ void CardNode::displayList() const {
     nodePtr = nodePtr->next;
   }
 }
+
+void CardNode::displayNode(string vocab) const {
+  Card *nodePtr;
+  nodePtr = head;
+
+  while (nodePtr != nullptr && nodePtr->vocab != vocab) {
+    nodePtr = nodePtr->next;
+  }
+
+  if (nodePtr) {
+    cout << "Vocab: " << nodePtr->vocab << endl;
+    cout << nodePtr->leadingChar << static_cast<char>((nodePtr->leadingChar)+32) << endl;
+    cout << "Category: " << nodePtr->category << endl;
+    cout << "Definition: " << nodePtr->definition << endl;
+  } else {
+    cout << "Vocab not found." << endl;
+  }
+}
