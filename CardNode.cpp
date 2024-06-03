@@ -17,7 +17,7 @@ void CardNode::editNode (string label, string question, string category, string 
     }
 
     if (question == "") {
-      cout << endl << "Error: Question cannot be empty." << endl;
+      cout << endl << "Error: Question / Vocabulary cannot be empty." << endl;
       return;
     }
 
@@ -46,14 +46,14 @@ void CardNode::editNode (string label, string question, string category, string 
     nodePtr->setCategory(category);
     nodePtr->setDescription(description);
   } else {
-    cout << "Question not found." << endl;
+    cout << "Question / Vocabulary not found." << endl;
   }
 }
 
 void CardNode::searchNode (string question) const {
   try {
     if (question == "") {
-      cout << endl << "Error: Question cannot be empty." << endl;
+      cout << endl << "Error: Question / Vocabulary cannot be empty." << endl;
       return;
     }
   } catch (string exceptionString) {
@@ -70,10 +70,16 @@ void CardNode::searchNode (string question) const {
   }
 
   if (nodePtr) {
-    cout << "Question: " << nodePtr->getQuestion() << endl;
-    cout << "Label: " << nodePtr->getLabel() << endl;
-    cout << "Category: " << nodePtr->getCategory() << endl;
-    cout << "Description: " << nodePtr->getDescription() << endl;
+    string border = "+------------------------------------------------------------------------------------------------------+";
+
+    cout << border << endl;
+    cout << "| " << setw(100) << left << nodePtr->getLabel() << " |" << endl;
+    cout << "| " << setw(100) << left << " " << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->getQuestion() << " |" << endl;
+    cout << "| " << setw(100) << left << ("<" + nodePtr->getCategory() + ">") << " |" << endl;
+    cout << "| " << setw(100) << left << " " << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->getDescription() << " |" << endl;
+    cout << border << endl;
   } else {
     cout << "Question not found." << endl;
   }
@@ -82,7 +88,7 @@ void CardNode::searchNode (string question) const {
 void CardNode::deleteNode (string question) {
   try {
     if (question == "") {
-      cout << endl << "Error: Question cannot be empty." << endl;
+      cout << endl << "Error: Question / Vocabulary cannot be empty." << endl;
       return;
     }
   } catch (string exceptionString) {
@@ -137,7 +143,7 @@ void CardNode::insertNode (string label, string question, string category, strin
     }
 
     if (question == "") {
-      cout << endl << "Error: Question cannot be empty." << endl;
+      cout << endl << "Error: Question / Vocabulary cannot be empty." << endl;
       return;
     }
 
@@ -208,16 +214,6 @@ void CardNode::insertNode (string label, string question, string category, strin
 }
 
 void CardNode::displayNode(string question) const {
-  try {
-    if (question == "") {
-      cout << endl << "Error: Question cannot be empty." << endl;
-      return;
-    }
-  } catch (string exceptionString) {
-    cout << exceptionString;
-    return;
-  }
-
   Card *nodePtr;
   nodePtr = head;
 
@@ -237,8 +233,61 @@ void CardNode::displayNode(string question) const {
     cout << "| " << setw(100) << left << nodePtr->getDescription() << " |" << endl;
     cout << border << endl;
   } else {
-    cout << "Question not found." << endl;
+    cout << "Question / Vocabulary not found." << endl;
   }
+}
+
+void CardNode::displayListOneByOne() const {
+  Card *nodePtr;
+  nodePtr = head;
+
+  static int counter = 1;
+
+  cout << "Card " << counter << ":" << endl;
+
+  displayNode(nodePtr->getQuestion());
+
+  char choice;
+  do {
+    cout << "Click j to jump to the previous card." << endl;
+    cout << "Click k to jump to the next card." << endl;
+    cout << "Click q to quit." << endl;
+
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    switch (choice) {
+      case 'j': {
+        if (nodePtr->getPrev() != nullptr) {
+          nodePtr = nodePtr->getPrev();
+          counter--;
+
+          cout << "Card " << counter << ":" << endl;
+
+          displayNode(nodePtr->getQuestion());
+        } else {
+          cout << "No more previous card." << endl;
+        }
+        break;
+      }
+      case 'k': {
+        if (nodePtr->getNext() != nullptr) {
+          nodePtr = nodePtr->getNext();
+          counter++;
+
+          cout << "Card " << counter << ":" << endl;
+
+          displayNode(nodePtr->getQuestion());
+        } else {
+          cout << "No more next card." << endl;
+        }
+        break;
+      }
+      case 'q': {
+        break;
+      }
+    }
+  } while (choice != 'q');
 }
 
 void CardNode::displayList() const {
@@ -272,7 +321,7 @@ string CardNode::getCardLabel(string question) const {
   if (nodePtr) {
     return nodePtr->getLabel();
   } else {
-    return "Question not found.";
+    return "Question / Vocabulary not found.";
   }
 }
 
@@ -287,7 +336,7 @@ string CardNode::getCardQuestion(string question) const {
   if (nodePtr) {
     return nodePtr->getQuestion();
   } else {
-    return "Question not found.";
+    return "Question / Vocabulary not found.";
   }
 }
 
@@ -302,7 +351,7 @@ string CardNode::getCardCategory(string question) const {
   if (nodePtr) {
     return nodePtr->getCategory();
   } else {
-    return "Question not found.";
+    return "Question / Vocabulary not found.";
   }
 }
 
@@ -317,6 +366,6 @@ string CardNode::getCardDescription(string question) const {
   if (nodePtr) {
     return nodePtr->getDescription();
   } else {
-    return "Question not found.";
+    return "Question / Vocabulary not found.";
   }
 }

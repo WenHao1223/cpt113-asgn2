@@ -31,6 +31,7 @@ class CardNode {
 
     // Display each node's content
     void displayNode(string question) const;
+    void displayListOneByOne() const;
 
     // Display the whole list
     void displayList() const;
