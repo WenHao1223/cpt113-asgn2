@@ -83,9 +83,10 @@ int main () {
             cout << "1. Display all flashcards" << endl;
             cout << "2. Display flash card one by one" << endl;
             cout << "3. Search for a flashcard" << endl;
-            cout << "4. Edit a flashcard" << endl;
-            cout << "5. Delete a flashcard" << endl;
-            cout << "6. Exit / Load from different flash card file" << endl;
+            cout << "4. Add a flashcard" << endl;
+            cout << "5. Edit a flashcard" << endl;
+            cout << "6. Delete a flashcard" << endl;
+            cout << "7. Exit / Load from different flash card file" << endl;
             cout << "Enter your choice: ";
             cin >> menuChoice;
           } while (menuChoice != '1' && menuChoice != '2' && menuChoice != '3' && menuChoice != '4' && menuChoice != '5' && menuChoice != '6');
@@ -108,6 +109,22 @@ int main () {
               break;
             }
             case '4': {
+              string label, question, category, description;
+              cout << "Enter the label: ";
+              cin.ignore();
+              getline(cin, label);
+              cout << "Enter the question: ";
+              getline(cin, question);
+              cout << "Enter the category: ";
+              getline(cin, category);
+              cout << "Enter the description: ";
+              getline(cin, description);
+
+              cardNode.insertNode(label, question, category, description);
+              cout << "Card added." << endl;
+              break;
+            }
+            case '5': {
               string edit;
               cout << "Enter the question / vocabulary to edit: ";
               cin.ignore();
@@ -162,7 +179,7 @@ int main () {
 
               break;
             }
-            case '5': {
+            case '6': {
               string del;
               cout << "Enter the question / vocabulary to delete: ";
               cin.ignore();
@@ -170,7 +187,7 @@ int main () {
               cardNode.deleteNode(del);
               break;
             }
-            case '6': {
+            case '7': {
               exit = true;
             }
           }
