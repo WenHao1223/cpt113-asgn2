@@ -1,6 +1,7 @@
 #include "CardNode.h"
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 CardNode::CardNode() {
@@ -222,10 +223,16 @@ void CardNode::displayNode(string question) const {
   }
 
   if (nodePtr) {
-    cout << "Question: " << nodePtr->getQuestion() << endl;
-    cout << "Label: " << nodePtr->getLabel() << endl;
-    cout << "Category: " << nodePtr->getCategory() << endl;
-    cout << "Description: " << nodePtr->getDescription() << endl;
+    string border = "+------------------------------------------+";
+
+    cout << border << endl;
+    cout << "| " << setw(40) << left << nodePtr->getLabel() << " |" << endl;
+    cout << "| " << setw(40) << left << " " << " |" << endl;
+    cout << "| " << setw(40) << left << nodePtr->getQuestion() << " |" << endl;
+    cout << "| " << setw(40) << left << ("<" + nodePtr->getCategory() + ">") << " |" << endl;
+    cout << "| " << setw(40) << left << " " << " |" << endl;
+    cout << "| " << setw(40) << left << nodePtr->getDescription() << " |" << endl;
+    cout << border << endl;
   } else {
     cout << "Question not found." << endl;
   }
@@ -236,11 +243,17 @@ void CardNode::displayList() const {
   nodePtr = head;
 
   while (nodePtr) {
-    cout << "Question: " << nodePtr->getQuestion() << endl;
-    cout << "Label: " << nodePtr->getLabel() << endl;
-    cout << "Category: " << nodePtr->getCategory() << endl;
-    cout << "Description: " << nodePtr->getDescription() << endl;
-    cout << endl;
+    string border = "+------------------------------------------+";
+
+    cout << border << endl;
+    cout << "| " << setw(40) << left << nodePtr->getLabel() << " |" << endl;
+    cout << "| " << setw(40) << left << " " << " |" << endl;
+    cout << "| " << setw(40) << left << nodePtr->getQuestion() << " |" << endl;
+    cout << "| " << setw(40) << left << ("<" + nodePtr->getCategory() + ">") << " |" << endl;
+    cout << "| " << setw(40) << left << " " << " |" << endl;
+    cout << "| " << setw(40) << left << nodePtr->getDescription() << " |" << endl;
+    cout << border << endl;
+    
     nodePtr = nodePtr->getNext();
   }
 }
