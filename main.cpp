@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 
+#include "Card.h"
 #include "CardNode.h"
 
 int main () {

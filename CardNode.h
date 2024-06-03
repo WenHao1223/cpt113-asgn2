@@ -1,17 +1,11 @@
 #include <iostream>
 using namespace std;
 
+#include "Card.h"
+
 class CardNode {
   private:
-    struct Card {
-      char leadingChar;
-      string vocab;
-      string category;
-      string definition;
-
-      Card *next;
-      Card *prev;
-    };
+    Card card;
 
     Card *head;
     Card *tail;
@@ -37,7 +31,7 @@ class CardNode {
 
     // Display each node's content
     void displayNode(string vocab) const;
-    
+
     // Display the whole list
     void displayList() const;
 
