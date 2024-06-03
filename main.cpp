@@ -113,7 +113,7 @@ int main () {
               cout << "Enter the label: ";
               cin.ignore();
               getline(cin, label);
-              cout << "Enter the question: ";
+              cout << "Enter the question / vocabulary: ";
               getline(cin, question);
               cout << "Enter the category: ";
               getline(cin, category);
@@ -122,6 +122,7 @@ int main () {
 
               cardNode.insertNode(label, question, category, description);
               cout << "Card added." << endl;
+              cardNode.displayNode(question);
               break;
             }
             case '5': {
