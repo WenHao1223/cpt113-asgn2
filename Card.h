@@ -8,10 +8,10 @@ using namespace std;
 
 class Card {
   private:
-    char leadingChar;
-    string vocab;
+    char label;
+    string question;
     string category;
-    string definition;
+    string description;
 
     Card *next;
     Card *prev;
@@ -23,18 +23,18 @@ class Card {
     ~Card();
 
     // mutator
-    void setVocab(string vocab);
-    void setLeadingChar(char leadingChar);
+    void setQuestion(string question);
+    void setLabel(char label);
     void setCategory(string category);
-    void setDefinition(string definition);
+    void setDescription(string description);
     void setNext(Card *next);
     void setPrev(Card *prev);
 
     // accessor
-    char getLeadingChar() const;
-    string getVocab() const;
+    char getLabel() const;
+    string getQuestion() const;
     string getCategory() const;
-    string getDefinition() const;
+    string getDescription() const;
 
     Card *getNext() const;
     Card *getPrev() const;

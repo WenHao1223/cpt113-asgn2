@@ -15,22 +15,22 @@ class CardNode {
     CardNode();
 
     // Editing the content of the list node
-    void editNode(string vocab, string category, string definition);
+    void editNode(string question, string category, string description);
 
     // Searching the list
-    void searchNode(string vocab) const;
+    void searchNode(string question) const;
 
     // Deleting the node
-    void deleteNode(string vocab);
+    void deleteNode(string question);
 
     // Destruct the whole list
     ~CardNode();
 
     // Inserting the node
-    void insertNode(string vocab, string category, string definition);
+    void insertNode(string question, string category, string description);
 
     // Display each node's content
-    void displayNode(string vocab) const;
+    void displayNode(string question) const;
 
     // Display the whole list
     void displayList() const;

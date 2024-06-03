@@ -4,25 +4,25 @@
 using namespace std;
 
 Card::Card() {
-  leadingChar = 'A';
-  vocab = "";
+  label = 'A';
+  question = "";
   category = "";
   next = nullptr;
   prev = nullptr;
 }
 
 Card::~Card() {
-  cout << "Card " << vocab << " is deleted." << endl;
+  cout << "Card " << question << " is deleted." << endl;
 }
 
-void Card::setVocab(string vocab) {
-  this->vocab = vocab;
+void Card::setQuestion(string question) {
+  this->question = question;
 }
 
-void Card::setLeadingChar(char leadingChar) {
+void Card::setLabel(char label) {
   // change it to upper case
-  if (this->leadingChar >= 'a' && this->leadingChar <= 'z') {
-    this->leadingChar -= 32;
+  if (this->label >= 'a' && this->label <= 'z') {
+    this->label -= 32;
   }
 }
 
@@ -30,8 +30,8 @@ void Card::setCategory(string category) {
   this->category = category;
 }
 
-void Card::setDefinition(string definition) {
-  this->definition = definition;
+void Card::setDescription(string description) {
+  this->description = description;
 }
 
 void Card::setNext(Card *next) {
@@ -42,20 +42,20 @@ void Card::setPrev(Card *prev) {
   this->prev = prev;
 }
 
-char Card::getLeadingChar() const {
-  return leadingChar;
+char Card::getLabel() const {
+  return label;
 }
 
-string Card::getVocab() const {
-  return vocab;
+string Card::getQuestion() const {
+  return question;
 }
 
 string Card::getCategory() const {
   return category;
 }
 
-string Card::getDefinition() const {
-  return definition;
+string Card::getDescription() const {
+  return description;
 }
 
 Card *Card::getNext() const {
