@@ -9,6 +9,23 @@ CardNode::CardNode() {
 }
 
 void CardNode::editNode (string vocab, string category, string definition) {
+  try {
+    if (vocab == "") {
+      throw "Vocab cannot be empty.";
+    }
+
+    if (category == "") {
+      throw "Category cannot be empty.";
+    }
+
+    if (definition == "") {
+      throw "Definition cannot be empty.";
+    }
+  } catch {
+    cout << "Error: " << e << endl;
+    return;
+  }
+
   Card *nodePtr;
   nodePtr = head;
 

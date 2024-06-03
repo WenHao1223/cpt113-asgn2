@@ -1,12 +1,12 @@
-refrigerator;appliance;A large device that keeps food and drinks cold.
-microwave;appliance;A small oven that heats food quickly using microwaves.
-television;electronics;A device with a screen that shows pictures and sounds, used for entertainment.
-vacuum cleaner;appliance;A machine that cleans floors by sucking up dirt and dust.
-washing machine;appliance;A machine that washes clothes automatically.
-air conditioner;appliance;A device that cools the air in a room.
-dishwasher;appliance;A machine that washes and dries dishes automatically.
-toaster;appliance;A small device that browns bread by heating it.
-blender;appliance;A kitchen device used to mix, puree, or chop food.
-coffee maker;appliance;A machine that brews coffee.
-oven;appliance;A device used for baking or roasting food.
-iron;appliance;A device used to remove wrinkles from clothes by applying heat and pressure.
+Rr;Refrigerator;appliance;A large device that keeps food and drinks cold.
+Mm;Microwave;appliance;A small oven that heats food quickly using microwaves.
+Tt;Television;electronics;A device with a screen that shows pictures and sounds, used for entertainment.
+Vv;Vacuum cleaner;appliance;A machine that cleans floors by sucking up dirt and dust.
+Ww;Washing machine;appliance;A machine that washes clothes automatically.
+Aa;Air conditioner;appliance;A device that cools the air in a room.
+Dd;Dishwasher;appliance;A machine that washes and dries dishes automatically.
+Tt;Toaster;appliance;A small device that browns bread by heating it.
+Bb;Blender;appliance;A kitchen device used to mix, puree, or chop food.
+Cc;Coffee maker;appliance;A machine that brews coffee.
+Oo;Oven;appliance;A device used for baking or roasting food.
+Ii;Iron;appliance;A device used to remove wrinkles from clothes by applying heat and pressure.
