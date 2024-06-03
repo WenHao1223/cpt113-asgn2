@@ -9,22 +9,26 @@ CardNode::CardNode() {
 }
 
 void CardNode::editNode (string vocab, string category, string definition) {
+  cout << "hi";
   try {
     if (vocab == "") {
-      throw "Vocab cannot be empty.";
+      cout << endl << "Error: Vocab cannot be empty." << endl;
+      return;
     }
 
     if (category == "") {
-      throw "Category cannot be empty.";
+      cout << endl << "Error: Category cannot be empty." << endl;
+      return;
     }
 
     if (definition == "") {
-      throw "Definition cannot be empty.";
+      cout << endl << "Error: Definition cannot be empty." << endl;
+      return;
     }
-  } catch {
-    cout << "Error: " << e << endl;
+  } catch (string exceptionString) {
+    cout << exceptionString;
     return;
-  }
+  };
 
   Card *nodePtr;
   nodePtr = head;
