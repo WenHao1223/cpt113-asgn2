@@ -4,6 +4,7 @@ using namespace std;
 class CardNode {
   private:
     struct Card {
+      char leadingChar;
       string vocab;
       string category;
       string definition;
