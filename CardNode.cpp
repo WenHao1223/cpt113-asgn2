@@ -81,7 +81,7 @@ void CardNode::searchNode (string question) const {
     cout << "| " << setw(100) << left << nodePtr->getDescription() << " |" << endl;
     cout << border << endl;
   } else {
-    cout << "Question not found." << endl;
+    cout << "Question / Vocabulary not found." << endl;
   }
 }
 
@@ -97,16 +97,23 @@ void CardNode::deleteNode (string question) {
   }
 
   Card *nodePtr;
-  Card *previousNode;
+  Card *previousNode = nullptr;
 
   if (!head) {
+    cout << "The list is empty." << endl;
     return;
   }
 
   if (head->getQuestion() == question) {
     nodePtr = head->getNext();
+    if (nodePtr) {
+      nodePtr->setPrev(nullptr);
+    }
     delete head;
     head = nodePtr;
+    if (head == nullptr) {
+      tail = nullptr;
+    }
   } else {
     nodePtr = head;
 
@@ -116,8 +123,17 @@ void CardNode::deleteNode (string question) {
     }
 
     if (nodePtr) {
-      previousNode->setNext(nodePtr->getNext());
+      if (nodePtr->getNext()) {
+        nodePtr->getNext()->setPrev(previousNode);
+      } else {
+        tail = previousNode;
+      }
+      if (previousNode) {
+        previousNode->setNext(nodePtr->getNext());
+      }
       delete nodePtr;
+    } else {
+      cout << "Question / Vocabulary not found." << endl;
     }
   }
 }

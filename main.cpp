@@ -11,17 +11,19 @@ using namespace std;
 int main () {
   CardNode cardNode;
 
-  // cout << "Inserting items into the list:" << endl;
-  // cardNode.insertNode("Aa", "Apple", "fruit", "a fruit");
-  // cardNode.insertNode("Cc", "Carrot", "vegetable", "a vegetable");
-  // cardNode.insertNode("Bb", "Bear", "animal", "an animal");
-  // cardNode.insertNode("Bb", "Banana", "fruit", "a fruit");
+  cout << "Inserting items into the list:" << endl;
+  cardNode.insertNode("Aa", "Apple", "fruit", "a fruit");
+  cardNode.insertNode("Cc", "Carrot", "vegetable", "a vegetable");
+  cardNode.insertNode("Bb", "Bear", "animal", "an animal");
+  cardNode.insertNode("Bb", "Banana", "fruit", "a fruit");
 
-  // cout << "Delete carrot:" << endl;
-  // cardNode.deleteNode("Carrot");
+  cardNode.displayList();
 
-  // cout << "Item left in the list:" << endl;
-  // cardNode.displayList();
+  cout << "Delete carrot:" << endl;
+  cardNode.deleteNode("Carrot");
+
+  cout << "Item left in the list:" << endl;
+  cardNode.displayList();
 
   // cout << "Searching for apple:" << endl;
   // cardNode.searchNode("Apple");
@@ -36,6 +38,7 @@ int main () {
 
   bool terminate = false;
   do {
+    break;
     char choice;
     do {
       cout << "1. Load flashcard" << endl;
@@ -165,6 +168,7 @@ int main () {
               cin.ignore();
               getline(cin, del);
               cardNode.deleteNode(del);
+              cout << "test";
               break;
             }
             case '6': {
