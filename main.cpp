@@ -4,7 +4,16 @@
 #include <iostream>
 using namespace std;
 
+#include "CardNode.h"
+
 int main () {
-    cout << "Hello, World!" << endl;
+    CardNode cardNode;
+
+    cardNode.insertNode("apple", "fruit", "a fruit");
+    cardNode.insertNode("banana", "fruit", "a fruit");
+    cardNode.insertNode("carrot", "vegetable", "a vegetable");
+
+    cardNode.displayList();
+
     return 0;
 }
