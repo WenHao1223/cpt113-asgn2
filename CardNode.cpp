@@ -180,6 +180,12 @@ void CardNode::insertNode (string label, string question, string category, strin
       nodePtr = nodePtr->getNext();
     }
 
+    // check if next node has the same label and order according to question
+    while (nodePtr != nullptr && nodePtr->getLabel() == label && nodePtr->getQuestion() < question) {
+      previousNode = nodePtr;
+      nodePtr = nodePtr->getNext();
+    }
+
     if (previousNode == nullptr) {
       head = newNode;
       newNode->setNext(nodePtr);
