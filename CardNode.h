@@ -35,4 +35,8 @@ class CardNode {
     // Display the whole list
     void displayList() const;
 
+    string getCardLabel(string question) const;
+    string getCardQuestion(string question) const;
+    string getCardCategory(string question) const;
+    string getCardDescription(string question) const;
 };

@@ -257,3 +257,63 @@ void CardNode::displayList() const {
     nodePtr = nodePtr->getNext();
   }
 }
+
+string CardNode::getCardLabel(string question) const {
+  Card *nodePtr;
+  nodePtr = head;
+
+  while (nodePtr != nullptr && nodePtr->getQuestion() != question) {
+    nodePtr = nodePtr->getNext();
+  }
+
+  if (nodePtr) {
+    return nodePtr->getLabel();
+  } else {
+    return "Question not found.";
+  }
+}
+
+string CardNode::getCardQuestion(string question) const {
+  Card *nodePtr;
+  nodePtr = head;
+
+  while (nodePtr != nullptr && nodePtr->getQuestion() != question) {
+    nodePtr = nodePtr->getNext();
+  }
+
+  if (nodePtr) {
+    return nodePtr->getQuestion();
+  } else {
+    return "Question not found.";
+  }
+}
+
+string CardNode::getCardCategory(string question) const {
+  Card *nodePtr;
+  nodePtr = head;
+
+  while (nodePtr != nullptr && nodePtr->getQuestion() != question) {
+    nodePtr = nodePtr->getNext();
+  }
+
+  if (nodePtr) {
+    return nodePtr->getCategory();
+  } else {
+    return "Question not found.";
+  }
+}
+
+string CardNode::getCardDescription(string question) const {
+  Card *nodePtr;
+  nodePtr = head;
+
+  while (nodePtr != nullptr && nodePtr->getQuestion() != question) {
+    nodePtr = nodePtr->getNext();
+  }
+
+  if (nodePtr) {
+    return nodePtr->getDescription();
+  } else {
+    return "Question not found.";
+  }
+}
