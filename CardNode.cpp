@@ -176,12 +176,7 @@ void CardNode::insertNode (string label, string question, string category, strin
     previousNode = nullptr;
 
     while (nodePtr != nullptr && nodePtr->getLabel() < label) {
-      // then compare the question if same label
-      while (nodePtr->getLabel() == label) {
-        if (nodePtr->getQuestion() > question) {
-          break;
-        }
-      } 
+      previousNode = nodePtr;
       nodePtr = nodePtr->getNext();
     }
 
@@ -189,7 +184,9 @@ void CardNode::insertNode (string label, string question, string category, strin
       head = newNode;
       newNode->setNext(nodePtr);
       newNode->setPrev(nullptr);
-      newNode->setPrev(nodePtr);
+      if (nodePtr != nullptr) {
+        nodePtr->setPrev(newNode);
+      }
     } else {
       previousNode->setNext(newNode);
       newNode->setPrev(previousNode);
