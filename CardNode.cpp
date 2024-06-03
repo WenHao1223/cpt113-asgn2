@@ -8,8 +8,13 @@ CardNode::CardNode() {
   tail = nullptr; 
 }
 
-void CardNode::editNode (string question, string category, string description) {
+void CardNode::editNode (string label, string question, string category, string description) {
   try {
+    if (label == "") {
+      cout << endl << "Error: Label cannot be empty." << endl;
+      return;
+    }
+
     if (question == "") {
       cout << endl << "Error: Question cannot be empty." << endl;
       return;
@@ -45,6 +50,17 @@ void CardNode::editNode (string question, string category, string description) {
 }
 
 void CardNode::searchNode (string question) const {
+  try {
+    if (question == "") {
+      cout << endl << "Error: Question cannot be empty." << endl;
+      return;
+    }
+  } catch (string exceptionString) {
+    cout << exceptionString;
+    return;
+  }
+
+  
   Card *nodePtr;
   nodePtr = head;
 
@@ -54,7 +70,7 @@ void CardNode::searchNode (string question) const {
 
   if (nodePtr) {
     cout << "Question: " << nodePtr->getQuestion() << endl;
-    cout << nodePtr->getLabel() << static_cast<char>((nodePtr->getLabel())+32) << endl;
+    cout << "Label: " << nodePtr->getLabel() << endl;
     cout << "Category: " << nodePtr->getCategory() << endl;
     cout << "Description: " << nodePtr->getDescription() << endl;
   } else {
@@ -63,6 +79,16 @@ void CardNode::searchNode (string question) const {
 }
 
 void CardNode::deleteNode (string question) {
+  try {
+    if (question == "") {
+      cout << endl << "Error: Question cannot be empty." << endl;
+      return;
+    }
+  } catch (string exceptionString) {
+    cout << exceptionString;
+    return;
+  }
+
   Card *nodePtr;
   Card *previousNode;
 
@@ -102,14 +128,39 @@ CardNode::~CardNode() {
   }
 }
 
-void CardNode::insertNode (string question, string category, string description) {
+void CardNode::insertNode (string label, string question, string category, string description) {
+  try {
+    if (label == "") {
+      cout << endl << "Error: Label cannot be empty." << endl;
+      return;
+    }
+
+    if (question == "") {
+      cout << endl << "Error: Question cannot be empty." << endl;
+      return;
+    }
+
+    if (category == "") {
+      cout << endl << "Error: Category cannot be empty." << endl;
+      return;
+    }
+
+    if (description == "") {
+      cout << endl << "Error: Description cannot be empty." << endl;
+      return;
+    }
+  } catch (string exceptionString) {
+    cout << exceptionString;
+    return;
+  }
+
   Card *newNode;
   Card *nodePtr;
   Card *previousNode = nullptr;
 
   newNode = new Card;
 
-  newNode->setLabel(question.front());
+  newNode->setLabel(label);
   newNode->setQuestion(question);
   newNode->setCategory(category);
   newNode->setDescription(description);
@@ -148,6 +199,16 @@ void CardNode::insertNode (string question, string category, string description)
 }
 
 void CardNode::displayNode(string question) const {
+  try {
+    if (question == "") {
+      cout << endl << "Error: Question cannot be empty." << endl;
+      return;
+    }
+  } catch (string exceptionString) {
+    cout << exceptionString;
+    return;
+  }
+
   Card *nodePtr;
   nodePtr = head;
 
@@ -157,7 +218,7 @@ void CardNode::displayNode(string question) const {
 
   if (nodePtr) {
     cout << "Question: " << nodePtr->getQuestion() << endl;
-    cout << nodePtr->getLabel() << static_cast<char>((nodePtr->getLabel())+32) << endl;
+    cout << "Label: " << nodePtr->getLabel() << endl;
     cout << "Category: " << nodePtr->getCategory() << endl;
     cout << "Description: " << nodePtr->getDescription() << endl;
   } else {
@@ -171,7 +232,7 @@ void CardNode::displayList() const {
 
   while (nodePtr) {
     cout << "Question: " << nodePtr->getQuestion() << endl;
-    cout << nodePtr->getLabel() << static_cast<char>((nodePtr->getLabel())+32) << endl;
+    cout << "Label: " << nodePtr->getLabel() << endl;
     cout << "Category: " << nodePtr->getCategory() << endl;
     cout << "Description: " << nodePtr->getDescription() << endl;
     cout << endl;

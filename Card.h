@@ -8,7 +8,7 @@ using namespace std;
 
 class Card {
   private:
-    char label;
+    string label;
     string question;
     string category;
     string description;
@@ -24,14 +24,14 @@ class Card {
 
     // mutator
     void setQuestion(string question);
-    void setLabel(char label);
+    void setLabel(string label);
     void setCategory(string category);
     void setDescription(string description);
     void setNext(Card *next);
     void setPrev(Card *prev);
 
     // accessor
-    char getLabel() const;
+    string getLabel() const;
     string getQuestion() const;
     string getCategory() const;
     string getDescription() const;

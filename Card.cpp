@@ -4,7 +4,7 @@
 using namespace std;
 
 Card::Card() {
-  label = 'A';
+  label = "";
   question = "";
   category = "";
   next = nullptr;
@@ -19,11 +19,8 @@ void Card::setQuestion(string question) {
   this->question = question;
 }
 
-void Card::setLabel(char label) {
-  // change it to upper case
-  if (this->label >= 'a' && this->label <= 'z') {
-    this->label -= 32;
-  }
+void Card::setLabel(string label) {
+  this->label = label;
 }
 
 void Card::setCategory(string category) {
@@ -42,7 +39,7 @@ void Card::setPrev(Card *prev) {
   this->prev = prev;
 }
 
-char Card::getLabel() const {
+string Card::getLabel() const {
   return label;
 }
 

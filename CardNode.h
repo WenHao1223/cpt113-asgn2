@@ -15,7 +15,7 @@ class CardNode {
     CardNode();
 
     // Editing the content of the list node
-    void editNode(string question, string category, string description);
+    void editNode(string label, string question, string category, string description);
 
     // Searching the list
     void searchNode(string question) const;
@@ -27,7 +27,7 @@ class CardNode {
     ~CardNode();
 
     // Inserting the node
-    void insertNode(string question, string category, string description);
+    void insertNode(string label, string question, string category, string description);
 
     // Display each node's content
     void displayNode(string question) const;

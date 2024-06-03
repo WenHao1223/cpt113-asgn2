@@ -11,9 +11,10 @@ int main () {
     CardNode cardNode;
 
     cout << "Inserting items into the list:" << endl;
-    cardNode.insertNode("Apple", "fruit", "a fruit");
-    cardNode.insertNode("Carrot", "vegetable", "a vegetable");
-    cardNode.insertNode("Banana", "fruit", "a fruit");
+    cardNode.insertNode("Aa", "Apple", "fruit", "a fruit");
+    cardNode.insertNode("Cc", "Carrot", "vegetable", "a vegetable");
+    cardNode.insertNode("Bb", "Bear", "animal", "an animal");
+    cardNode.insertNode("Bb", "Banana", "fruit", "a fruit");
 
     cout << "Delete carrot:" << endl;
     cardNode.deleteNode("Carrot");
@@ -26,7 +27,7 @@ int main () {
     cout << endl;
 
     cout << "Editing banana:" << endl;
-    cardNode.editNode("Banana", "fruit", "a fruit that is yellow");
+    cardNode.editNode("Bb", "Banana", "fruit", "a fruit that is yellow");
 
     cout << "Displaying banana:" << endl;
     cardNode.displayNode("Banana");
