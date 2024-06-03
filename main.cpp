@@ -65,8 +65,8 @@ int main () {
               cout << "Error: File not found." << endl;
             }
           } while (!file);
-        } catch (string const exemptionError) {
-          cout << "Error: " << exemptionError << endl;
+        } catch (string const exceptionString) {
+          cout << "Error: " << exceptionString << endl;
         }
 
         string label, question, category, description;
