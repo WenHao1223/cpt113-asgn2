@@ -135,15 +135,20 @@ int main () {
               cin.ignore();
               getline(cin, edit);
 
-              // show thee card details
-              cardNode.displayNode(edit);
-
               // set the old card details
               string label, question, category, description;
               label = cardNode.getCardLabel(edit);
               question = cardNode.getCardQuestion(edit);
               category = cardNode.getCardCategory(edit);
               description = cardNode.getCardDescription(edit);
+
+              if(question == "Question / Vocabulary not found.") {
+                cout << "Error: Card not found." << endl;
+                break;
+              }
+
+              // show thee card details
+              cardNode.displayNode(edit);
 
               char fieldChoice;
               do {
