@@ -38,13 +38,13 @@ void CardNode::editNode (string label, string question, string category, string 
   Card *nodePtr;
   nodePtr = head;
 
-  while (nodePtr != nullptr && nodePtr->getQuestion() != question) {
-    nodePtr = nodePtr->getNext();
+  while (nodePtr != nullptr && nodePtr->content.getQuestion() != question) {
+    nodePtr = nodePtr->next;
   }
 
   if (nodePtr) {
-    nodePtr->setCategory(category);
-    nodePtr->setDescription(description);
+    nodePtr->content.setCategory(category);
+    nodePtr->content.setDescription(description);
   } else {
     cout << "Question / Vocabulary not found." << endl;
   }
@@ -65,20 +65,20 @@ void CardNode::searchNode (string question) const {
   Card *nodePtr;
   nodePtr = head;
 
-  while (nodePtr != nullptr && nodePtr->getQuestion() != question) {
-    nodePtr = nodePtr->getNext();
+  while (nodePtr != nullptr && nodePtr->content.getQuestion() != question) {
+    nodePtr = nodePtr->next;
   }
 
   if (nodePtr) {
     string border = "+------------------------------------------------------------------------------------------------------+";
 
     cout << border << endl;
-    cout << "| " << setw(100) << left << nodePtr->getLabel() << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->content.getLabel() << " |" << endl;
     cout << "| " << setw(100) << left << " " << " |" << endl;
-    cout << "| " << setw(100) << left << nodePtr->getQuestion() << " |" << endl;
-    cout << "| " << setw(100) << left << ("<" + nodePtr->getCategory() + ">") << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->content.getQuestion() << " |" << endl;
+    cout << "| " << setw(100) << left << ("<" + nodePtr->content.getCategory() + ">") << " |" << endl;
     cout << "| " << setw(100) << left << " " << " |" << endl;
-    cout << "| " << setw(100) << left << nodePtr->getDescription() << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->content.getDescription() << " |" << endl;
     cout << border << endl;
   } else {
     cout << "Question / Vocabulary not found." << endl;
@@ -104,10 +104,10 @@ void CardNode::deleteNode (string question) {
     return;
   }
 
-  if (head->getQuestion() == question) {
-    nodePtr = head->getNext();
+  if (head->content.getQuestion() == question) {
+    nodePtr = head->next;
     if (nodePtr) {
-      nodePtr->setPrev(nullptr);
+      nodePtr->prev = nullptr;
     }
     delete head;
     head = nodePtr;
@@ -117,21 +117,23 @@ void CardNode::deleteNode (string question) {
   } else {
     nodePtr = head;
 
-    while (nodePtr != nullptr && nodePtr->getQuestion() != question) {
+    while (nodePtr != nullptr && nodePtr->content.getQuestion() != question) {
       previousNode = nodePtr;
-      nodePtr = nodePtr->getNext();
+      nodePtr = nodePtr->next;
     }
 
     if (nodePtr) {
-      if (nodePtr->getNext()) {
-        nodePtr->getNext()->setPrev(previousNode);
+      if (nodePtr->next) {
+        nodePtr->next->prev = previousNode; 
       } else {
         tail = previousNode;
       }
       if (previousNode) {
-        previousNode->setNext(nodePtr->getNext());
+        previousNode->next = nodePtr->next;
       }
       delete nodePtr;
+
+      cout << "Question / Vocabulary deleted." << endl;
     } else {
       cout << "Question / Vocabulary not found." << endl;
     }
@@ -145,7 +147,7 @@ CardNode::~CardNode() {
   nodePtr = head;
 
   while (nodePtr != nullptr) {
-    nextNode = nodePtr->getNext();
+    nextNode = nodePtr->next;
     delete nodePtr;
     nodePtr = nextNode;
   }
@@ -183,45 +185,45 @@ void CardNode::insertNode (string label, string question, string category, strin
 
   newNode = new Card;
 
-  newNode->setLabel(label);
-  newNode->setQuestion(question);
-  newNode->setCategory(category);
-  newNode->setDescription(description);
+  newNode->content.setLabel(label);
+  newNode->content.setQuestion(question);
+  newNode->content.setCategory(category);
+  newNode->content.setDescription(description);
 
   if (!head) {
     head = newNode;
-    newNode->setNext(nullptr);
-    newNode->setPrev(nullptr);
+    newNode->next = nullptr;
+    newNode->prev = nullptr;
     tail = newNode;
   } else {
     nodePtr = head;
     previousNode = nullptr;
 
-    while (nodePtr != nullptr && nodePtr->getLabel() < label) {
+    while (nodePtr != nullptr && nodePtr->content.getLabel() < label) {
       previousNode = nodePtr;
-      nodePtr = nodePtr->getNext();
+      nodePtr = nodePtr->next;
     }
 
     // check if next node has the same label and order according to question
-    while (nodePtr != nullptr && nodePtr->getLabel() == label && nodePtr->getQuestion() < question) {
+    while (nodePtr != nullptr && nodePtr->content.getLabel() == label && nodePtr->content.getQuestion() < question) {
       previousNode = nodePtr;
-      nodePtr = nodePtr->getNext();
+      nodePtr = nodePtr->next;
     }
 
     if (previousNode == nullptr) {
       head = newNode;
-      newNode->setNext(nodePtr);
-      newNode->setPrev(nullptr);
+      newNode->next = nodePtr;
+      newNode->prev = nullptr;
       if (nodePtr != nullptr) {
-        nodePtr->setPrev(newNode);
+        nodePtr->prev = newNode;
       }
     } else {
-      previousNode->setNext(newNode);
-      newNode->setPrev(previousNode);
-      newNode->setNext(nodePtr);
+      previousNode->next = newNode;
+      newNode->prev = previousNode;
+      newNode->next = nodePtr;
 
       if (nodePtr != nullptr) {
-        nodePtr->setPrev(newNode);
+        nodePtr->prev = newNode;
       } else {
         tail = newNode;
       }
@@ -233,20 +235,20 @@ void CardNode::displayNode(string question) const {
   Card *nodePtr;
   nodePtr = head;
 
-  while (nodePtr != nullptr && nodePtr->getQuestion() != question) {
-    nodePtr = nodePtr->getNext();
+  while (nodePtr != nullptr && nodePtr->content.getQuestion() != question) {
+    nodePtr = nodePtr->next;
   }
 
   if (nodePtr) {
     string border = "+------------------------------------------------------------------------------------------------------+";
 
     cout << border << endl;
-    cout << "| " << setw(100) << left << nodePtr->getLabel() << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->content.getLabel() << " |" << endl;
     cout << "| " << setw(100) << left << " " << " |" << endl;
-    cout << "| " << setw(100) << left << nodePtr->getQuestion() << " |" << endl;
-    cout << "| " << setw(100) << left << ("<" + nodePtr->getCategory() + ">") << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->content.getQuestion() << " |" << endl;
+    cout << "| " << setw(100) << left << ("<" + nodePtr->content.getCategory() + ">") << " |" << endl;
     cout << "| " << setw(100) << left << " " << " |" << endl;
-    cout << "| " << setw(100) << left << nodePtr->getDescription() << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->content.getDescription() << " |" << endl;
     cout << border << endl;
   } else {
     cout << "Question / Vocabulary not found." << endl;
@@ -261,7 +263,7 @@ void CardNode::displayListOneByOne() const {
 
   cout << "Card " << counter << ":" << endl;
 
-  displayNode(nodePtr->getQuestion());
+  displayNode(nodePtr->content.getQuestion());
 
   char choice;
   do {
@@ -274,26 +276,26 @@ void CardNode::displayListOneByOne() const {
 
     switch (choice) {
       case 'j': {
-        if (nodePtr->getPrev() != nullptr) {
-          nodePtr = nodePtr->getPrev();
+        if (nodePtr->prev != nullptr) {
+          nodePtr = nodePtr->prev;
           counter--;
 
           cout << "Card " << counter << ":" << endl;
 
-          displayNode(nodePtr->getQuestion());
+          displayNode(nodePtr->content.getQuestion());
         } else {
           cout << "No more previous card." << endl;
         }
         break;
       }
       case 'k': {
-        if (nodePtr->getNext() != nullptr) {
-          nodePtr = nodePtr->getNext();
+        if (nodePtr->next != nullptr) {
+          nodePtr = nodePtr->next;
           counter++;
 
           cout << "Card " << counter << ":" << endl;
 
-          displayNode(nodePtr->getQuestion());
+          displayNode(nodePtr->content.getQuestion());
         } else {
           cout << "No more next card." << endl;
         }
@@ -314,15 +316,15 @@ void CardNode::displayList() const {
     string border = "+------------------------------------------------------------------------------------------------------+";
 
     cout << border << endl;
-    cout << "| " << setw(100) << left << nodePtr->getLabel() << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->content.getLabel() << " |" << endl;
     cout << "| " << setw(100) << left << " " << " |" << endl;
-    cout << "| " << setw(100) << left << nodePtr->getQuestion() << " |" << endl;
-    cout << "| " << setw(100) << left << ("<" + nodePtr->getCategory() + ">") << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->content.getQuestion() << " |" << endl;
+    cout << "| " << setw(100) << left << ("<" + nodePtr->content.getCategory() + ">") << " |" << endl;
     cout << "| " << setw(100) << left << " " << " |" << endl;
-    cout << "| " << setw(100) << left << nodePtr->getDescription() << " |" << endl;
+    cout << "| " << setw(100) << left << nodePtr->content.getDescription() << " |" << endl;
     cout << border << endl;
     
-    nodePtr = nodePtr->getNext();
+    nodePtr = nodePtr->next;
   }
 }
 
@@ -330,12 +332,12 @@ string CardNode::getCardLabel(string question) const {
   Card *nodePtr;
   nodePtr = head;
 
-  while (nodePtr != nullptr && nodePtr->getQuestion() != question) {
-    nodePtr = nodePtr->getNext();
+  while (nodePtr != nullptr && nodePtr->content.getQuestion() != question) {
+    nodePtr = nodePtr->next;
   }
 
   if (nodePtr) {
-    return nodePtr->getLabel();
+    return nodePtr->content.getLabel();
   } else {
     return "Question / Vocabulary not found.";
   }
@@ -345,12 +347,12 @@ string CardNode::getCardQuestion(string question) const {
   Card *nodePtr;
   nodePtr = head;
 
-  while (nodePtr != nullptr && nodePtr->getQuestion() != question) {
-    nodePtr = nodePtr->getNext();
+  while (nodePtr != nullptr && nodePtr->content.getQuestion() != question) {
+    nodePtr = nodePtr->next;
   }
 
   if (nodePtr) {
-    return nodePtr->getQuestion();
+    return nodePtr->content.getQuestion();
   } else {
     return "Question / Vocabulary not found.";
   }
@@ -360,12 +362,12 @@ string CardNode::getCardCategory(string question) const {
   Card *nodePtr;
   nodePtr = head;
 
-  while (nodePtr != nullptr && nodePtr->getQuestion() != question) {
-    nodePtr = nodePtr->getNext();
+  while (nodePtr != nullptr && nodePtr->content.getQuestion() != question) {
+    nodePtr = nodePtr->next;
   }
 
   if (nodePtr) {
-    return nodePtr->getCategory();
+    return nodePtr->content.getCategory();
   } else {
     return "Question / Vocabulary not found.";
   }
@@ -375,12 +377,12 @@ string CardNode::getCardDescription(string question) const {
   Card *nodePtr;
   nodePtr = head;
 
-  while (nodePtr != nullptr && nodePtr->getQuestion() != question) {
-    nodePtr = nodePtr->getNext();
+  while (nodePtr != nullptr && nodePtr->content.getQuestion() != question) {
+    nodePtr = nodePtr->next;
   }
 
   if (nodePtr) {
-    return nodePtr->getDescription();
+    return nodePtr->content.getDescription();
   } else {
     return "Question / Vocabulary not found.";
   }

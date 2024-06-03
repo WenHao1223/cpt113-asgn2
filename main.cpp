@@ -5,25 +5,25 @@
 #include <fstream>
 using namespace std;
 
-#include "Card.h"
+#include "CardContent.h"
 #include "CardNode.h"
 
 int main () {
   CardNode cardNode;
 
-  cout << "Inserting items into the list:" << endl;
-  cardNode.insertNode("Aa", "Apple", "fruit", "a fruit");
-  cardNode.insertNode("Cc", "Carrot", "vegetable", "a vegetable");
-  cardNode.insertNode("Bb", "Bear", "animal", "an animal");
-  cardNode.insertNode("Bb", "Banana", "fruit", "a fruit");
+  // cout << "Inserting items into the list:" << endl;
+  // cardNode.insertNode("Aa", "Apple", "fruit", "a fruit");
+  // cardNode.insertNode("Cc", "Carrot", "vegetable", "a vegetable");
+  // cardNode.insertNode("Bb", "Bear", "animal", "an animal");
+  // cardNode.insertNode("Bb", "Banana", "fruit", "a fruit");
 
-  cardNode.displayList();
+  // cardNode.displayList();
 
-  cout << "Delete carrot:" << endl;
-  cardNode.deleteNode("Carrot");
+  // cout << "Delete carrot:" << endl;
+  // cardNode.deleteNode("Carrot");
 
-  cout << "Item left in the list:" << endl;
-  cardNode.displayList();
+  // cout << "Item left in the list:" << endl;
+  // cardNode.displayList();
 
   // cout << "Searching for apple:" << endl;
   // cardNode.searchNode("Apple");
@@ -38,7 +38,7 @@ int main () {
 
   bool terminate = false;
   do {
-    break;
+    // break;
     char choice;
     do {
       cout << "1. Load flashcard" << endl;
@@ -168,7 +168,6 @@ int main () {
               cin.ignore();
               getline(cin, del);
               cardNode.deleteNode(del);
-              cout << "test";
               break;
             }
             case '6': {
@@ -176,7 +175,6 @@ int main () {
             }
           }
         } while (!exit);
-        cout << "terminate: " << terminate << endl;
         break;
       }
       case '2': {
@@ -186,8 +184,6 @@ int main () {
         break;
       }
     }
-    cout << "hi";
-    cout << "Terminate: " << terminate << endl;
   } while (!terminate);
   return 0;
 }

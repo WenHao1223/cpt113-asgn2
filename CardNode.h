@@ -1,12 +1,15 @@
 #include <iostream>
 using namespace std;
 
-#include "Card.h"
+#include "CardContent.h"
 
 class CardNode {
   private:
-    Card card;
-
+    struct Card {
+      CardContent content;
+      Card *next;
+      Card *prev;
+    };
     Card *head;
     Card *tail;
 
