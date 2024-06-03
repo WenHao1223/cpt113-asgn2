@@ -54,16 +54,20 @@ int main () {
         ifstream file;
         string fileName;
 
-        do {
-          cout << "Enter the file name: ";
-          cin >> fileName;
+        try {
+          do {
+            cout << "Enter the file name: ";
+            cin >> fileName;
 
-          file.open("flashCard/"+fileName);
+            file.open("flashCard/"+fileName);
 
-          if(!file) {
-            cout << "Error: File not found." << endl;
-          }
-        } while (!file);
+            if(!file) {
+              cout << "Error: File not found." << endl;
+            }
+          } while (!file);
+        } catch (string const exemptionError) {
+          cout << "Error: " << exemptionError << endl;
+        }
 
         string label, question, category, description;
         while (file >> label) {
@@ -89,7 +93,7 @@ int main () {
             cout << "7. Exit / Load from different flash card file" << endl;
             cout << "Enter your choice: ";
             cin >> menuChoice;
-          } while (menuChoice != '1' && menuChoice != '2' && menuChoice != '3' && menuChoice != '4' && menuChoice != '5' && menuChoice != '6');
+          } while (menuChoice != '1' && menuChoice != '2' && menuChoice != '3' && menuChoice != '4' && menuChoice != '5' && menuChoice != '6' && menuChoice != '7');
 
           switch (menuChoice) {
             case '1': {
