@@ -1,12 +1,12 @@
-Dd;Dog;mammal;A friendly pet with fur that barks and wags its tail.
-Ee;Elephant;mammal;A very large animal with a trunk and big ears.
-Bb;Butterfly;insect;A colorful insect with large, delicate wings.
-Pp;Parrot;bird;A bright, colorful bird that can sometimes mimic sounds and words.
-Ss;Shark;fish;A large fish with sharp teeth that lives in the ocean.
-Cc;Cat;mammal;A small pet with soft fur that likes to purr.
-Ww;Whale;mammal;A huge animal that lives in the ocean and breathes through a blowhole on its head.
-Ee;Eagle;bird;A large bird with sharp claws and excellent eyesight.
-Ll;Lion;mammal;A big cat with a mane, known as the king of the jungle.
-Ff;Frog;amphibian;A small amphibian with smooth skin that can hop and lives near water.
-Rr;Rabbit;mammal;A small, furry animal with long ears that hops and eats vegetables.
-Pp;Penguin;bird;A bird that can't fly but is a great swimmer, living mostly in cold areas.
+Dd	Dog	mammal	A friendly pet with fur that barks and wags its tail.
+Ee	Elephant	mammal	A very large animal with a trunk and big ears.
+Bb	Butterfly	insect	A colorful insect with large, delicate wings.
+Pp	Parrot	bird	A bright, colorful bird that can sometimes mimic sounds and words.
+Ss	Shark	fish	A large fish with sharp teeth that lives in the ocean.
+Cc	Cat	mammal	A small pet with soft fur that likes to purr.
+Ww	Whale	mammal	A huge animal that lives in the ocean and breathes through a blowhole on its head.
+Ee	Eagle	bird	A large bird with sharp claws and excellent eyesight.
+Ll	Lion	mammal	A big cat with a mane, known as the king of the jungle.
+Ff	Frog	amphibian	A small amphibian with smooth skin that can hop and lives near water.
+Rr	Rabbit	mammal	A small, furry animal with long ears that hops and eats vegetables.
+Pp	Penguin	bird	A bird that can't fly but is a great swimmer, living mostly in cold areas.

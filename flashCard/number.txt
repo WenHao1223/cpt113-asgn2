@@ -1,10 +1,10 @@
-1;One;number;The first number, which comes before 2.
-2;Two;number;The second number, which comes after 1 and before 3.
-3;Three;number;The third number, which comes after 2 and before 4.
-4;Four;number;The fourth number, which comes after 3 and before 5.
-5;Five;number;The fifth number, which comes after 4 and before 6.
-6;Six;number;The sixth number, which comes after 5 and before 7.
-7;Seven;number;The seventh number, which comes after 6 and before 8.
-8;Eight;number;The eighth number, which comes after 7 and before 9.
-9;Nine;number;The ninth number, which comes after 8 and before 10.
-10;Ten;number;The tenth number, which comes after 9.
+1	One	number	The first number, which comes before 2.
+2	Two	number	The second number, which comes after 1 and before 3.
+3	Three	number	The third number, which comes after 2 and before 4.
+4	Four	number	The fourth number, which comes after 3 and before 5.
+5	Five	number	The fifth number, which comes after 4 and before 6.
+6	Six	number	The sixth number, which comes after 5 and before 7.
+7	Seven	number	The seventh number, which comes after 6 and before 8.
+8	Eight	number	The eighth number, which comes after 7 and before 9.
+9	Nine	number	The ninth number, which comes after 8 and before 10.
+10	Ten	number	The tenth number, which comes after 9.
