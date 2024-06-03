@@ -8,6 +8,40 @@ CardNode::CardNode() {
   tail = nullptr; 
 }
 
+void CardNode::editNode (string vocab, string category, string definition) {
+  Card *nodePtr;
+  nodePtr = head;
+
+  while (nodePtr != nullptr && nodePtr->vocab != vocab) {
+    nodePtr = nodePtr->next;
+  }
+
+  if (nodePtr) {
+    nodePtr->category = category;
+    nodePtr->definition = definition;
+  } else {
+    cout << "Vocab not found." << endl;
+  }
+}
+
+void CardNode::searchNode (string vocab) const {
+  Card *nodePtr;
+  nodePtr = head;
+
+  while (nodePtr != nullptr && nodePtr->vocab != vocab) {
+    nodePtr = nodePtr->next;
+  }
+
+  if (nodePtr) {
+    cout << "Vocab: " << nodePtr->vocab << endl;
+    cout << nodePtr->leadingChar << static_cast<char>((nodePtr->leadingChar)+32) << endl;
+    cout << "Category: " << nodePtr->category << endl;
+    cout << "Definition: " << nodePtr->definition << endl;
+  } else {
+    cout << "Vocab not found." << endl;
+  }
+}
+
 CardNode::~CardNode() {
   Card *nodePtr;
   Card *nextNode;
@@ -69,39 +103,7 @@ void CardNode::insertNode (string vocab, string category, string definition) {
   }
 }
 
-void CardNode::deleteNode (string vocab) {
-  Card *nodePtr;
-  Card *previousNode;
-
-  if (!head) {
-    return;
-  }
-
-  if (head->vocab == vocab) {
-    nodePtr = head->next;
-    delete head;
-    head = nodePtr;
-  } else {
-    nodePtr = head;
-
-    while (nodePtr != nullptr && nodePtr->vocab != vocab) {
-      previousNode = nodePtr;
-      nodePtr = nodePtr->next;
-    }
-
-    if (nodePtr) {
-      previousNode->next = nodePtr->next;
-      if (nodePtr->next != nullptr) {
-        nodePtr->next->prev = previousNode;
-      } else {
-        tail = previousNode;
-      }
-      delete nodePtr;
-    }
-  }
-}
-
-void CardNode::searchNode (string vocab) const {
+void CardNode::displayNode(string vocab) const {
   Card *nodePtr;
   nodePtr = head;
 
@@ -114,22 +116,6 @@ void CardNode::searchNode (string vocab) const {
     cout << nodePtr->leadingChar << static_cast<char>((nodePtr->leadingChar)+32) << endl;
     cout << "Category: " << nodePtr->category << endl;
     cout << "Definition: " << nodePtr->definition << endl;
-  } else {
-    cout << "Vocab not found." << endl;
-  }
-}
-
-void CardNode::editNode (string vocab, string category, string definition) {
-  Card *nodePtr;
-  nodePtr = head;
-
-  while (nodePtr != nullptr && nodePtr->vocab != vocab) {
-    nodePtr = nodePtr->next;
-  }
-
-  if (nodePtr) {
-    nodePtr->category = category;
-    nodePtr->definition = definition;
   } else {
     cout << "Vocab not found." << endl;
   }
@@ -146,23 +132,5 @@ void CardNode::displayList() const {
     cout << "Definition: " << nodePtr->definition << endl;
     cout << endl;
     nodePtr = nodePtr->next;
-  }
-}
-
-void CardNode::displayNode(string vocab) const {
-  Card *nodePtr;
-  nodePtr = head;
-
-  while (nodePtr != nullptr && nodePtr->vocab != vocab) {
-    nodePtr = nodePtr->next;
-  }
-
-  if (nodePtr) {
-    cout << "Vocab: " << nodePtr->vocab << endl;
-    cout << nodePtr->leadingChar << static_cast<char>((nodePtr->leadingChar)+32) << endl;
-    cout << "Category: " << nodePtr->category << endl;
-    cout << "Definition: " << nodePtr->definition << endl;
-  } else {
-    cout << "Vocab not found." << endl;
   }
 }
