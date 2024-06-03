@@ -12,7 +12,8 @@ Card::Card() {
 }
 
 Card::~Card() {
-  cout << "Card " << question << " is deleted." << endl;
+  delete next;
+  delete prev;
 }
 
 void Card::setQuestion(string question) {
