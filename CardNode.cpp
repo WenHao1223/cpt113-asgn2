@@ -42,6 +42,33 @@ void CardNode::searchNode (string vocab) const {
   }
 }
 
+void CardNode::deleteNode (string vocab) {
+  Card *nodePtr;
+  Card *previousNode;
+
+  if (!head) {
+    return;
+  }
+
+  if (head->vocab == vocab) {
+    nodePtr = head->next;
+    delete head;
+    head = nodePtr;
+  } else {
+    nodePtr = head;
+
+    while (nodePtr != nullptr && nodePtr->vocab != vocab) {
+      previousNode = nodePtr;
+      nodePtr = nodePtr->next;
+    }
+
+    if (nodePtr) {
+      previousNode->next = nodePtr->next;
+      delete nodePtr;
+    }
+  }
+}
+
 CardNode::~CardNode() {
   Card *nodePtr;
   Card *nextNode;
