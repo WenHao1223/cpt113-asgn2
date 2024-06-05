@@ -40,19 +40,23 @@ float CardNode<int, float>::getDefaultValueT2() {
     return -1.0;
 }
 
+void check(const string var, const string varName) {
+    if (var == "") {
+        cout << "\nError: " << varName << "cannot be empty.\n";
+    }
+}
+
+template <class T1>
+void check(T1 var, string varName) {
+    // No check for T1
+}
 
 template <class T1, class T2>
 void CardNode<T1, T2>::editNode (T1 label, T2 question, string category, string description) {
   try {
-    // if (label == "") {
-    //   cout << endl << "Error: Label cannot be empty." << endl;
-    //   return;
-    // }
+    check(label, "Label");
 
-    // if (question == "") {
-    //   cout << endl << "Error: Question / Vocabulary cannot be empty." << endl;
-    //   return;
-    // }
+    check(question, "Question");
 
     if (category == "") {
       cout << endl << "Error: Category cannot be empty." << endl;
@@ -86,10 +90,8 @@ void CardNode<T1, T2>::editNode (T1 label, T2 question, string category, string 
 template <class T1, class T2>
 void CardNode<T1, T2>::searchNode (T2 question) const {
   try {
-    // if (question == "") {
-    //   cout << endl << "Error: Question / Vocabulary cannot be empty." << endl;
-    //   return;
-    // }
+    check(question, "Question");
+
   } catch (string exceptionString) {
     cout << exceptionString;
     return;
@@ -122,10 +124,8 @@ void CardNode<T1, T2>::searchNode (T2 question) const {
 template <class T1, class T2>
 void CardNode<T1, T2>::deleteNode (T2 question) {
   try {
-    // if (question == "") {
-    //   cout << endl << "Error: Question / Vocabulary cannot be empty." << endl;
-    //   return;
-    // }
+    check(question, "Question");
+
   } catch (string exceptionString) {
     cout << exceptionString;
     return;
@@ -192,15 +192,9 @@ CardNode<T1, T2>::~CardNode() {
 template <class T1, class T2>
 void CardNode<T1, T2>::insertNode (T1 label, T2 question, string category, string description) {
   try {
-    // if (label == "") {
-    //   cout << endl << "Error: Label cannot be empty." << endl;
-    //   return;
-    // }
+    check(label, "Label");
 
-    // if (question == "") {
-    //   cout << endl << "Error: Question / Vocabulary cannot be empty." << endl;
-    //   return;
-    // }
+    check(question, "Question");
 
     if (category == "") {
       cout << endl << "Error: Category cannot be empty." << endl;

@@ -52,6 +52,8 @@ class CardNode {
 
     static T1 getDefaultValueT1();
     static T2 getDefaultValueT2();
+
+    static void checkLabel(const T1 label);
 };
 
 template class CardNode <string, string>;
