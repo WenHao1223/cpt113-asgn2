@@ -143,9 +143,9 @@ int main () {
               category = cardNode.getCardCategory(edit);
               description = cardNode.getCardDescription(edit);
 
-              if(question == "Question / Vocabulary not found.") {
-                cout << "Error: Card not found." << endl;
-                break;
+              if(question == cardNode.getDefaultValueT2()) {
+                  cout << "Error: Card not found." << endl;
+                  break;
               }
 
               // show thee card details
