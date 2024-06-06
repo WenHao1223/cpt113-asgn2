@@ -267,9 +267,9 @@ void CardNode::displayListOneByOne() const {
 
   char choice;
   do {
-    cout << "Click j to jump to the previous card." << endl;
-    cout << "Click k to jump to the next card." << endl;
-    cout << "Click q to quit." << endl;
+    cout << "Enter j to the previous card." << endl;
+    cout << "Enter k to the next card." << endl;
+    cout << "Enter q to quit..................." << endl;
 
     cout << "Enter your choice: ";
     cin >> choice;
