@@ -42,6 +42,9 @@ int main () {
     // break;
     char choice;
     do {
+      cout << "******************************************" << endl;
+      cout << "   --- Welcome to Flashcard Studies ---   " << endl;
+      cout << "******************************************" << endl;
       cout << "1. Load flashcard" << endl;
       cout << "2. Terminate program" << endl;
       cout << "Enter your choice: ";
@@ -85,6 +88,9 @@ int main () {
         do {
           char menuChoice;
           do {
+            cout << "\n*****************************************" << endl;
+            cout << "   --- Flashcard Studies Menu ---   " << endl;
+            cout << "******************************************" << endl;
             cout << "1. Display all flashcards" << endl;
             cout << "2. Display flash card one by one" << endl;
             cout << "3. Search for a flashcard" << endl;
@@ -98,23 +104,32 @@ int main () {
 
           switch (menuChoice) {
             case '1': {
+              cout << "\nDisplaying all flashcards:"<<endl;
               cardNode.displayList();
               break;
             }
             case '2': {
+              cout << "\nDisplaying flashcards one by one:"<<endl;
               cardNode.displayListOneByOne();
               break;
             }
             case '3': {
               string search;
-              cout << "Enter the question / vocabulary to search: ";
-              cin.ignore();
-              getline(cin, search);
-              cardNode.searchNode(search);
+              string choice;
+              do{
+                cout << "\nEnter the question / vocabulary to search: ";
+                cin.ignore();
+                getline(cin, search);
+                cardNode.searchNode(search);
+                cout << "Do you want to search again? (y/n): ";
+                cin >> choice;
+                } while(choice == "y" || choice == "Y");
               break;
-            }
+              }
             case '4': {
               string label, question, category, description;
+              string choice;
+              do{
               cout << "Enter the label: ";
               cin.ignore();
               getline(cin, label);
@@ -128,6 +143,9 @@ int main () {
               cardNode.insertNode(label, question, category, description);
               cout << "Card added." << endl;
               cardNode.displayNode(question);
+              cout << "Do you want to add another card? (y/n): ";
+              cin >> choice;
+              } while(choice == "y" || choice == "Y");
               break;
             }
             case '5': {
@@ -196,10 +214,13 @@ int main () {
               cin.ignore();
               getline(cin, del);
               cardNode.deleteNode(del);
+              cout << "Card deleted." << endl;
               break;
             }
             case '7': {
+              cout<<"Exiting to main menu...\n"<<endl;
               exit = true;
+              break;
             }
           }
         } while (!exit);
